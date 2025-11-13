@@ -1,0 +1,121 @@
+print("Table 1: Directional Summary Statistics for Headings")
+[1] "Table 1: Directional Summary Statistics for Headings"
+> print(summary_table_headings)
+             Statistic      Value
+1 Mean Direction (rad) -0.4038877
+2     Resultant Length  0.4452751
+3    Circular Variance  0.5547249
+
+print("Table 2: Directional Summary Statistics for Turning Angles")
+[1] "Table 2: Directional Summary Statistics for Turning Angles"
+> print(summary_table_turnings)
+             Statistic      Value
+1 Mean Direction (rad) 0.03002483
+2     Resultant Length 0.93455455
+3    Circular Variance 0.06544545
+
+print("Table 3: Regime-Specific Directional Summaries for Headings")
+[1] "Table 3: Regime-Specific Directional Summaries for Headings"
+> print(regime_summaries_headings)
+# A tibble: 4 × 4
+  regime Mean_Direction Resultant_Length Circular_Variance
+   <dbl>          <dbl>            <dbl>             <dbl>
+1      1         -0.783            0.519             0.481
+2      2         -0.570            0.485             0.515
+3      3         -0.414            0.587             0.413
+4      4          0.559            0.347             0.653
+
+"Table 4: Von Mises Fit for Headings"
+              Parameter   Estimate         SE
+1   Mu (mean direction) -0.4038877 0.01095699
+2 Kappa (concentration)  0.9934218 0.01220001
+
+print("Table 5: Wrapped Cauchy Fit for Turning Angles")
+[1] "Table 5: Wrapped Cauchy Fit for Turning Angles"
+> print(wc_table_turn)
+            Parameter   Estimate
+1       Mu (location) 0.02423218
+2 Rho (concentration) 0.88639533
+
+Print("Table 6: Wind Intensity Model Coefficients by Regime")
+[1] "Table 6: Wind Intensity Model Coefficients by Regime"
+> print(wind_models)
+# A tibble: 20 × 8
+# Groups:   regime [4]
+   regime data                  model  term                   estimate std.error statistic  p.value
+    <dbl> <list>                <list> <chr>                     <dbl>     <dbl>     <dbl>    <dbl>
+ 1      1 <tibble [3,148 × 30]> <lm>   (Intercept)              27.8      0.210     132.   0       
+ 2      1 <tibble [3,148 × 30]> <lm>   cos(heading_rad)          0.351    0.139       2.54 1.13e- 2
+ 3      1 <tibble [3,148 × 30]> <lm>   sin(heading_rad)         -1.21     0.0948    -12.7  2.84e-36
+ 4      1 <tibble [3,148 × 30]> <lm>   sin(2 * pi * month/12)    0.727    0.232       3.13 1.77e- 3
+ 5      1 <tibble [3,148 × 30]> <lm>   cos(2 * pi * month/12)    1.40     0.145       9.67 7.95e-22
+ 6      4 <tibble [4,136 × 30]> <lm>   (Intercept)              35.3      0.418      84.5  0       
+ 7      4 <tibble [4,136 × 30]> <lm>   cos(heading_rad)          2.83     0.338       8.36 8.59e-17
+ 8      4 <tibble [4,136 × 30]> <lm>   sin(heading_rad)          4.68     0.255      18.3  4.35e-72
+ 9      4 <tibble [4,136 × 30]> <lm>   sin(2 * pi * month/12)    1.71     0.493       3.46 5.38e- 4
+10      4 <tibble [4,136 × 30]> <lm>   cos(2 * pi * month/12)    6.63     0.345      19.2  4.24e-79
+11      2 <tibble [6,795 × 30]> <lm>   (Intercept)              45.2      0.302     150.   0       
+12      2 <tibble [6,795 × 30]> <lm>   cos(heading_rad)          0.984    0.211       4.67 3.01e- 6
+13      2 <tibble [6,795 × 30]> <lm>   sin(heading_rad)          0.927    0.141       6.59 4.81e-11
+14      2 <tibble [6,795 × 30]> <lm>   sin(2 * pi * month/12)   -0.591    0.344      -1.72 8.55e- 2
+15      2 <tibble [6,795 × 30]> <lm>   cos(2 * pi * month/12)    1.09     0.199       5.46 4.93e- 8
+16      3 <tibble [4,803 × 30]> <lm>   (Intercept)              71.3      1.48       48.3  0       
+17      3 <tibble [4,803 × 30]> <lm>   cos(heading_rad)          0.975    0.713       1.37 1.71e- 1
+18      3 <tibble [4,803 × 30]> <lm>   sin(heading_rad)         -9.12     0.428     -21.3  2.70e-96
+19      3 <tibble [4,803 × 30]> <lm>   sin(2 * pi * month/12)  -14.3      1.62       -8.81 1.65e-18
+20      3 <tibble [4,803 × 30]> <lm>   cos(2 * pi * month/12)    2.36     0.689       3.42 6.31e- 4
+
+print("Table 7: GPD Fit")
+[1] "Table 7: GPD Fit"
+> print(table7)
+  Parameter   Estimate
+1     Scale 30.8891559
+2     Shape -0.3764718
+
+[1] "Table 9: Step Length Summary by Regime"
+> print(table9)
+# A tibble: 4 × 4
+  regime   Min   Max   Mean
+   <dbl> <dbl> <dbl>  <dbl>
+1      1     0 0.243 0.0177
+2      2     0 0.342 0.0193
+3      3     0 0.264 0.0201
+4      4     0 0.446 0.0270
+
+print("Table 10: Regime-wise Correlation")
+[1] "Table 10: Regime-wise Correlation"
+> print(table10)
+# A tibble: 4 × 4
+  regime corr_step_turn corr_step_wind corr_turn_wind
+   <dbl>          <dbl>          <dbl>          <dbl>
+1      1         0.0433         0.0398        -0.0472
+2      2        -0.0170         0.0496        -0.0211
+3      3        -0.0239        -0.0969         0.0127
+4      4        -0.0568         0.433         -0.0994
+
+
+
+"Table 11: Top 10 Wind Exceedances"
+> print(top_exceed)
+# A tibble: 10 × 32
+   name     year month   day  hour   lat  long status    category  wind pressure tropicalstorm_force_diam…¹
+   <chr>   <dbl> <dbl> <int> <dbl> <dbl> <dbl> <fct>        <dbl> <int>    <int>                      <int>
+ 1 Allen    1980     8     7    18  21.8 -86.4 hurricane        5   165      899                         NA
+ 2 Dorian   2019     9     1    16  26.5 -77   hurricane        5   160      910                        200
+ 3 Dorian   2019     9     1    18  26.5 -77.1 hurricane        5   160      910                        210
+ 4 Gilbert  1988     9    14     0  19.7 -83.8 hurricane        5   160      888                         NA
+ 5 Wilma    2005    10    19    12  17.3 -82.8 hurricane        5   160      882                        265
+ 6 Allen    1980     8     5    12  15.9 -70.5 hurricane        5   155      932                         NA
+ 7 Allen    1980     8     7    12  21   -84.8 hurricane        5   155      910                         NA
+ 8 Allen    1980     8     8     0  22.2 -87.9 hurricane        5   155      920                         NA
+ 9 Allen    1980     8     9     6  25   -94.2 hurricane        5   155      909                         NA
+10 Dorian   2019     9     1    12  26.5 -76.5 hurricane        5   155      927                        200
+# ℹ abbreviated name: ¹​tropicalstorm_force_diameter
+
+"Table 12: Correlation Between Step Length, Turning Angle, Wind"
+> print(corr_matrix)
+            step_length turning_rad       wind
+step_length  1.00000000 -0.02619892 0.01699451
+turning_rad -0.02619892  1.00000000 0.00176439
+wind         0.01699451  0.00176439 1.00000000
+
